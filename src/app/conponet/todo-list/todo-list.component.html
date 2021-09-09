@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="todolist not-done">
+                <h1>Todos_LIST</h1>
+                <form #toDoForm="ngForm" (ngSubmit)="addnewtask()">
+                    <div class="row">
+                        <input type="text" class="form-control add-todo w-50" name="task" required [(ngModel)]="listform.task" placeholder="to do task"><input type="date" class="form-control add-todo w-50"[(ngModel)]="listform.enddata" name="date" required>
+                        <button id="checkAll" class="btn btn-success" [disabled] = "toDoForm.invalid">add task</button>
+                    </div>
+                </form>
+                <div class="row">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th >task</th>
+                            <th>date</th>
+                            <th>status</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let emp of list" [ngClass]="{'red': condate(emp.enddata| date:'yyyy-MM-dd',myDate| date:'yyyy-MM-dd')}">
+                            <td><button class="mybutton" (click)="donelist(emp)"><i class="fas fa-check"style=" color: green;"></i></button>
+                                {{emp.task}}</td>
+                            <td>{{emp.enddata| date:'mediumDate'}} </td>
+                            <td> task not done</td>
+                            <td> <button class="mybutton" (click)="delettask(emp)"><i class="fas fa-trash-alt"style=" color: red;"></i></button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

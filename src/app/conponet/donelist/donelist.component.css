@@ -1,0 +1,12 @@
+.mybutton {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    border:none;
+    background-color: #2a2a2a;
+
+}
+.mybutton:focus {outline:0;}
+.fas{
+    color: red;
+}
